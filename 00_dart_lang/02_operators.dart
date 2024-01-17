@@ -20,12 +20,12 @@ void main() {
   print("$a + $b = ${a + b}");
   print("$a - $b = ${a - b}");
   print("$a * $b = ${a * b}");
-  print("$a / $b = ${a / b}");
-  print("$a ~/ $b = ${a ~/ b}");
+  print("$a / $b = ${a / b}"); // floating-point division
+  print("$a ~/ $b = ${a ~/ b}"); // integer (euclidean) division
   print("$a << $b = ${a << b}");
   print("$a >> $b = ${a >> b}");
-  print("$a & $b = ${a & b}");
-  print("$a | $b = ${a | b}");
+  print("$a & $b = ${a & b}"); // bitwise AND
+  print("$a | $b = ${a | b}"); // bitwise OR
 
   // Relational operators
   print("\nRelational Operators:");
@@ -40,7 +40,7 @@ void main() {
   bool x = true;
   bool y = false;
   print("\nLogical Operators:");
-  print("$x && $y is ${x && y}");
+  print("$x && $y is ${x && y}"); // AND
   print("$x || $y is ${x || y}");
   print("!$x is ${!x}");
   print("!$y is ${!y}");

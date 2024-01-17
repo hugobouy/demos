@@ -25,7 +25,7 @@ void strings() {
   String message = greeting + ' ' + name;
   print(message); // Output: Hello, Alice
 
-  // Interpolation
+  // Interpolation --> better practice than concatenation
   String interpolatedMessage = '$greeting $name';
   print(interpolatedMessage); // Output: Hello, Alice
 
@@ -60,11 +60,12 @@ void strings() {
 /*****************************************************************************/
 
 void records() {
+  // Records = tuples with named fields
   (double,double) point1 = (3.14, 2.71);
 
-  (double x, double y) point2 = (3, 2);
+  (double x, double y) point2 = (3, 2); // pointless to specify names (not saved)
 
-  ({double x, double y}) point3 = (x: 3, y: 2);
+  ({double x, double y}) point3 = (x: 3, y: 2); // now we can access by name
 
   ({double w, double z}) point4 = (w: 4, z: 3);
 
@@ -84,6 +85,7 @@ void records() {
   print('point3.x = ${point3.x}, point3.y = ${point3.y}');
 
   // point1 = point3; // how to fix this?
+  point1 = (point3.x, point3.y);
   // point3 = point4; // how to fix this?
 
   print(point5.runtimeType);
@@ -93,7 +95,7 @@ void records() {
 /*****************************************************************************/
 
 void collections() {
-  // Lists
+  // Lists = ordered collections of elements
   List<String> colors = ['red', 'green', 'blue'];
   print('List: $colors');
   print('Second color: ${colors[1]}');
@@ -101,7 +103,7 @@ void collections() {
   print('List after adding yellow: $colors');
   print('List length: ${colors.length}');
 
-  // Sets
+  // Sets = unordered collections of unique elements
   Set<int> numbers = {1, 2, 3, 4, 5};
   print('\nSet: $numbers');
   numbers.add(3); // Adding a duplicate value
@@ -110,8 +112,8 @@ void collections() {
   print('Set after removing 2: $numbers');
   print('Set contains 5: ${numbers.contains(5)}');
 
-  // Maps
-  Map<String, int> ages = {
+  // Maps = collections of key-value pairs
+  Map<String, int> ages = { // or var ages = <String, int>{}; or var ages = {};
     'Alice': 30,
     'Bob': 25,
     'Carol': 28,

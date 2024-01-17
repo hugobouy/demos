@@ -2,7 +2,7 @@
  * Topics to demonstrate:
  * 
  * - Static typing
- * - Type inference
+ * - Type inference (compiler guesses types)
  * - Type casting (type conversion)
  * - Type test operators
  * - Null safety
@@ -10,8 +10,8 @@
  */
 
 void main() {
-  simpleTypes();
-  nullableTypes();
+  //simpleTypes();
+  //nullableTypes();
   complexTypes();
 }
 
@@ -19,9 +19,13 @@ void main() {
 
 void simpleTypes() {
   // try declaring the following with `var` and initializing them with `null`
-  int inum = 42;
-  double fpnum = 3.14;
-  String snum = '442';
+  var inum = 42; // int
+  var fpnum = 3.14; // double
+  var snum = '442'; // String, var is best practice
+
+  //
+  var null_var = null;
+  print('null_var.runtimeType = ${null_var.runtimeType}');
 
   print('inum.runtimeType = ${inum.runtimeType}');
   print('fpnum.runtimeType = ${fpnum.runtimeType}');
@@ -32,7 +36,7 @@ void simpleTypes() {
 
   inum = fpnum.toInt();
   fpnum = inum.toDouble();
-  // fpnum = inum as double;
+  // fpnum = inum as double; // Type cast --> fails, double is not a subtype of int
 
   inum = int.parse(snum);
   snum = inum.toString();
@@ -41,15 +45,19 @@ void simpleTypes() {
 /*****************************************************************************/
 
 void nullableTypes() {
-  int n = 10; // try initializing with `null`
+  int? n = null; // try initializing with `null`
 
   print('n.runtimeType = ${n.runtimeType}');
 
   print(n == null);
 
-  print(n.abs());
+  if (n != null) {
+    print(n.abs());
+    print(n + 10);
+  }
+  print(n?.abs()); // null-aware operator
 
-  print(n + 10);
+  print(n??0 + 10); // if n is null, use 0
 }
 
 /*****************************************************************************/
@@ -82,7 +90,8 @@ void complexTypes() {
   print('listOfStrs3.runtimeType = ${listOfStrs3.runtimeType}');
 
   print(listOfObjs[0] is int);
-  // print(listOfObjs[0] + 10);
+  // print(listOfObjs[0] + 10); // error
+  print((listOfObjs[0] as int) + 10); // type cast
 
   print(listOfObjs[2] is String);
   // print(listOfObjs[2].length);
