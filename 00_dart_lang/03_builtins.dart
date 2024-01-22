@@ -112,7 +112,7 @@ void collections() {
   print('Set after removing 2: $numbers');
   print('Set contains 5: ${numbers.contains(5)}');
 
-  // Maps = collections of key-value pairs
+  // Maps = collections of key-value pairs (like dictionaries)
   Map<String, int> ages = { // or var ages = <String, int>{}; or var ages = {};
     'Alice': 30,
     'Bob': 25,

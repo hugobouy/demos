@@ -29,8 +29,8 @@ void parameterOptions() {
   printCharacterSheet2(name: 'Alice', ability: 'Fireball', hp: 1000);
 }
 
-
-void printCharacterSheet(String name, [int hp=100, String? ability]) {
+// parameters between [] are optional, and have a default value
+ void printCharacterSheet(String name, [int hp=100, String? ability]) {
   print('Name: $name');
   print('HP: $hp');
   if (ability != null) {
@@ -38,7 +38,10 @@ void printCharacterSheet(String name, [int hp=100, String? ability]) {
   }
 }
 
-
+// parameters between {} are named, and have a default value.
+// named parameters are optional, and can be passed in any order
+// to make a named parameter required, add `required` before the type
+// note: required parameters must come before optional parameters
 void printCharacterSheet2({
   required String name,
   int hp=100,
@@ -83,6 +86,8 @@ void anonymousFunctions() {
 
 /*****************************************************************************/
 
+// generic function that uses generic types E and T
+// It takes a list of type T, and a function that takes a T and returns an E
 List<E> map<E,T>(List<T> list, E Function(T) f) {
   // note: `E Function(T) f` is the same as `E f(T)`
   final result = <E>[];
@@ -115,6 +120,7 @@ void hofs() {
   final filtered = filter(pairs, (pair) => pair.$1 > 5);
   print(filtered);
 
+  // actually map and filter are built-in methods on lists
 
   list.map((s) => (s.length, s))
       .where((pair) => pair.$1 > 5)
@@ -136,7 +142,7 @@ void hofs() {
 
 
   HttpClient()
-      .getUrl(Uri.parse('https://moss.cs.iit.edu/cs440'))
+      .getUrl(Uri.parse('https://moss.cs.iit.edu/cs442'))
       .then((request) => request.close())
       .then((response) => response.transform(Utf8Decoder()))
       .then((utf8) => utf8.transform(LineSplitter()))

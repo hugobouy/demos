@@ -74,7 +74,7 @@ void branches() {
   switch(score) {
     case 100:
       print('Perfect score!');
-      break;
+      break; // break is not required if it's not an empty case
     case >= 90:
       print('A');
       break;
@@ -111,9 +111,9 @@ void branches() {
 /*****************************************************************************/
 
 void patterns() {
-  (int,int) point1 = (1, 2);
+  (int,int) point1 = (1, 2); // record = tuple
 
-  ({int x, int y}) point2 = (x: 3, y: 4);
+  ({int x, int y}) point2 = (x: 3, y: 4); // named record
 
   List<int> point3 = [5, 6];
 
