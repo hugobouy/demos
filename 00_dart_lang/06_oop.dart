@@ -23,13 +23,13 @@ class Shape {
 
 // Inheritance
 class Circle extends Shape {
-  double radius;
+  double radius; // By default, all attributes and methods are public, but can be made private with an underscore. Example: _radius
 
   // Constructor
-  Circle(this.radius);
+  Circle(this.radius); // The constructor is expecting one parameter that is assigned to the radius attributes
 
   // Getters and Setters
-  double get diameter => radius * 2;
+  double get diameter => radius * 2; // Getters and setters are used like an attributes. Example: print(circle.diameter);
   set diameter(double value) => radius = value / 2;
 
   double area() {
@@ -95,7 +95,10 @@ class Foo {
   final int x;
   final int y;
   
-  Foo(this.x, this.y); // try making this const
+  const Foo(this.x, this.y); // try making this const
+  // all final variables must have been initialized before the constructor body is executed
+  // solution is use "late". Example: late int x;
+  // a late variable is still fianal, but it can be initialized later
 
   bool operator ==(Object other) {
     if (other is Foo) {
@@ -151,6 +154,10 @@ void main() {
   // how to make the following const objects? what does it mean?
   var foo1 = Foo(5, 10);
   var foo2 = Foo(5, 10);
+  // if adding a const constructor, then the following is true:
+  // print('foo1 == foo2? ${foo1 == foo2}');
+  // The two objects are referring to the same object in memory
+  // if object are const, then the constructor can't have a body
 
   print('foo1 == foo2? ${foo1 == foo2}');
   print('foo1.hashCode == foo2.hashCode? ${foo1.hashCode == foo2.hashCode}');

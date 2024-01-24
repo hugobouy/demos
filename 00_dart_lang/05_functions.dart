@@ -154,7 +154,7 @@ void hofs() {
 Function makeAdder() {
   int x = Random().nextInt(100);
   print('Made adder with x = $x');
-  return (int y) => x + y;
+  return (int y) => x + y; // This is lexical scoping, x is "not" deallocated and can be "accessed" by the returned function
 }
 
 
