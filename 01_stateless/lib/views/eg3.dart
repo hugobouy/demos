@@ -8,6 +8,7 @@ class App3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold( // what happens if we remove the scaffold?
+      // Scaffold is a Material widget that provides a default app bar, title, and a body property that holds the main content of the home screen.
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
